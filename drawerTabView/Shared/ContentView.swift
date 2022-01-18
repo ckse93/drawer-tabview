@@ -8,15 +8,82 @@
 import SwiftUI
 
 struct ContentView: View {
-    let hiddenHeight = UIScreen.main.bounds.size.height - 250
+    @EnvironmentObject var appState: AppState
+    
+    let hiddenHeight = UIScreen.main.bounds.size.height - 280
     let showHeight: CGFloat = 170
     let swipeDistance: CGFloat = 100
-    @State var size: CGFloat = UIScreen.main.bounds.size.height - 250
+    @State var size: CGFloat = UIScreen.main.bounds.size.height - 280
     @State var showDrawer: Bool = false
     
     var body: some View {
         ZStack{
-            Color.orange
+            TabView(selection: $appState.selectedTab) {
+                NavigationView {
+                    ScrollView {
+                        ZStack{
+                            Color.orange
+                            Text("Today View")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .padding()
+                    }
+                }
+                .tabItem {
+                    Text("T0day")
+                }
+                .tag(0)  // need tag for each tabBar item
+                
+                NavigationView {
+                    ScrollView {
+                        ZStack{
+                            Color.blue
+                            Text("Chat View")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .padding()
+                    }
+                }
+                .tabItem {
+                    Text("Chat")
+                }
+                .tag(1)
+                
+                NavigationView {
+                    ScrollView {
+                        ZStack{
+                            Color.green
+                            Text("Learning View")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .padding()
+                    }
+                }
+                .tabItem {
+                    Text("Learning")
+                }
+                .tag(2)
+                
+                NavigationView {
+                    ScrollView {
+                        ZStack{
+                            Color.teal
+                            Text("Me View")
+                                .font(.title)
+                                .fontWeight(.bold)
+                        }
+                        .padding()
+                    }
+                }
+                .tabItem {
+                    Text("Me")
+                }
+                .tag(3)
+                
+            }
             
             Swipe(showHide: $showDrawer)
                 .padding(.top)
@@ -37,7 +104,6 @@ struct ContentView: View {
                 )
                 .animation(.spring(), value: true)
         }
-        .ignoresSafeArea()
         .onChange(of: showDrawer) { newValue in
             withAnimation {
                 self.size = newValue ? showHeight : hiddenHeight
@@ -59,7 +125,28 @@ struct Swipe: View {
         VStack {
             
             /// for pushing view up
-            VStack {
+            HStack {
+                Button {
+                    AppState.shared.selectedTab = 0
+                } label: {
+                    Text("TODAY")
+                        .frame(height: 30)
+                        .background(Color.gray)
+                        .cornerRadius(5)
+                        .padding(5)
+                }
+                
+                Button {
+                    AppState.shared.selectedTab = 1
+                } label: {
+                    Text("TODAY")
+                        .frame(height: 30)
+                        .background(Color.gray)
+                        .cornerRadius(5)
+                        .padding(5)
+                }
+
+                
                 Button {
                     showHide.wrappedValue.toggle()
                 } label: {
@@ -68,6 +155,26 @@ struct Swipe: View {
                 .background(Color.orange)
                 .padding()
                 .cornerRadius(15)
+                
+                Button {
+                    AppState.shared.selectedTab = 2
+                } label: {
+                    Text("TODAY")
+                        .frame(height: 30)
+                        .background(Color.gray)
+                        .cornerRadius(5)
+                        .padding(5)
+                }
+                
+                Button {
+                    AppState.shared.selectedTab = 3
+                } label: {
+                    Text("TODAY")
+                        .frame(height: 30)
+                        .background(Color.gray)
+                        .cornerRadius(5)
+                        .padding(5)
+                }
 
             }
             .border(.blue)

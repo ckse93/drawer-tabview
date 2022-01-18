@@ -13,6 +13,8 @@
 		DF35E13D27972447006CFC2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF35E12B27972445006CFC2E /* ContentView.swift */; };
 		DF35E13E27972447006CFC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF35E12C27972447006CFC2E /* Assets.xcassets */; };
 		DF35E13F27972447006CFC2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF35E12C27972447006CFC2E /* Assets.xcassets */; };
+		DF84617927974F8E00EC81AC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF84617827974F8E00EC81AC /* AppState.swift */; };
+		DF84617A27974F8E00EC81AC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF84617827974F8E00EC81AC /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,7 @@
 		DF35E13127972447006CFC2E /* drawerTabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drawerTabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF35E13727972447006CFC2E /* drawerTabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = drawerTabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF35E13927972447006CFC2E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		DF84617827974F8E00EC81AC /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 				DF35E12A27972445006CFC2E /* drawerTabViewApp.swift */,
 				DF35E12B27972445006CFC2E /* ContentView.swift */,
 				DF35E12C27972447006CFC2E /* Assets.xcassets */,
+				DF84617827974F8E00EC81AC /* AppState.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -178,6 +182,7 @@
 			files = (
 				DF35E13C27972447006CFC2E /* ContentView.swift in Sources */,
 				DF35E13A27972447006CFC2E /* drawerTabViewApp.swift in Sources */,
+				DF84617927974F8E00EC81AC /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +192,7 @@
 			files = (
 				DF35E13D27972447006CFC2E /* ContentView.swift in Sources */,
 				DF35E13B27972447006CFC2E /* drawerTabViewApp.swift in Sources */,
+				DF84617A27974F8E00EC81AC /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
