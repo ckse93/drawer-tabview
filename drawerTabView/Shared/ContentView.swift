@@ -23,7 +23,7 @@ struct ContentView: View {
                     ScrollView {
                         ZStack{
                             Color.orange
-                            Text("Today View")
+                            Text("main View")
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                 }
                 .tabItem {
-                    Text("T0day")
+                    Text("main")
                 }
                 .tag(0)  // need tag for each tabBar item
                 
@@ -39,7 +39,7 @@ struct ContentView: View {
                     ScrollView {
                         ZStack{
                             Color.blue
-                            Text("Chat View")
+                            Text("second View")
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
@@ -47,7 +47,7 @@ struct ContentView: View {
                     }
                 }
                 .tabItem {
-                    Text("Chat")
+                    Text("second")
                 }
                 .tag(1)
                 
@@ -55,7 +55,7 @@ struct ContentView: View {
                     ScrollView {
                         ZStack{
                             Color.green
-                            Text("Learning View")
+                            Text("third View")
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
@@ -63,7 +63,7 @@ struct ContentView: View {
                     }
                 }
                 .tabItem {
-                    Text("Learning")
+                    Text("third")
                 }
                 .tag(2)
                 
@@ -71,7 +71,7 @@ struct ContentView: View {
                     ScrollView {
                         ZStack{
                             Color.teal
-                            Text("Me View")
+                            Text("fourth View")
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
@@ -79,7 +79,7 @@ struct ContentView: View {
                     }
                 }
                 .tabItem {
-                    Text("Me")
+                    Text("four")
                 }
                 .tag(3)
                 
@@ -129,7 +129,7 @@ struct Swipe: View {
                 Button {
                     AppState.shared.selectedTab = 0
                 } label: {
-                    Text("TODAY")
+                    Text("MAIN")
                         .frame(height: 30)
                         .background(Color.gray)
                         .cornerRadius(5)
@@ -139,7 +139,7 @@ struct Swipe: View {
                 Button {
                     AppState.shared.selectedTab = 1
                 } label: {
-                    Text("TODAY")
+                    Text("SEC")
                         .frame(height: 30)
                         .background(Color.gray)
                         .cornerRadius(5)
@@ -159,7 +159,7 @@ struct Swipe: View {
                 Button {
                     AppState.shared.selectedTab = 2
                 } label: {
-                    Text("TODAY")
+                    Text("TRD")
                         .frame(height: 30)
                         .background(Color.gray)
                         .cornerRadius(5)
@@ -169,7 +169,7 @@ struct Swipe: View {
                 Button {
                     AppState.shared.selectedTab = 3
                 } label: {
-                    Text("TODAY")
+                    Text("FOTH")
                         .frame(height: 30)
                         .background(Color.gray)
                         .cornerRadius(5)
