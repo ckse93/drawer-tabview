@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let hiddenHeight = UIScreen.main.bounds.size.height - 250
     let showHeight: CGFloat = 170
+    let swipeDistance: CGFloat = 100
     @State var size: CGFloat = UIScreen.main.bounds.size.height - 250
     @State var showDrawer: Bool = false
     
@@ -20,6 +21,20 @@ struct ContentView: View {
             Swipe(showHide: $showDrawer)
                 .padding(.top)
                 .offset(y: self.size)
+                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                            .onEnded({ val in
+                    if val.translation.height < self.swipeDistance {
+                        // up
+                        self.showDrawer = true
+                    }
+                    
+                    if val.translation.height > self.swipeDistance {
+                        // down
+                        self.showDrawer = false
+                    }
+                })
+                
+                )
                 .animation(.spring(), value: true)
         }
         .ignoresSafeArea()
