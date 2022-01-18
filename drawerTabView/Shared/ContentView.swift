@@ -11,41 +11,23 @@ struct ContentView: View {
     let hiddenHeight = UIScreen.main.bounds.size.height - 250
     let showHeight: CGFloat = 170
     @State var size: CGFloat = UIScreen.main.bounds.size.height - 250
+    @State var showDrawer: Bool = false
     
     var body: some View {
         ZStack{
             Color.orange
             
-            Swipe()
+            Swipe(showHide: $showDrawer)
                 .padding(.top)
                 .offset(y: self.size)
-                .gesture(DragGesture()
-                            .onChanged({ value in
-                    if value.translation.height > 0 {
-                        self.size = value.translation.height
-                    } else {
-                        let temp = hiddenHeight
-                        self.size = temp + value.translation.height
-                    }
-                })
-                            .onEnded({ value in
-                    if value.translation.height > 0 {
-                        if value.translation.height > 200 {
-                            self.size = hiddenHeight
-                        } else {
-                            self.size = showHeight
-                        }
-                    } else {
-                        if value.translation.height < -200 {
-                            self.size = showHeight
-                        } else {
-                            self.size = hiddenHeight
-                        }
-                    }
-                }))
                 .animation(.spring(), value: true)
         }
         .ignoresSafeArea()
+        .onChange(of: showDrawer) { newValue in
+            withAnimation {
+                self.size = newValue ? showHeight : hiddenHeight
+            }
+        }
     }
 }
 
@@ -57,12 +39,21 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Swipe: View {
+    let showHide: Binding<Bool>
     var body: some View {
         VStack {
             
             /// for pushing view up
             VStack {
-                Text("visible area")
+                Button {
+                    showHide.wrappedValue.toggle()
+                } label: {
+                    Text("visible area")
+                }
+                .background(Color.orange)
+                .padding()
+                .cornerRadius(15)
+
             }
             .border(.blue)
             
