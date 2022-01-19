@@ -18,6 +18,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
+            
+            /// this tab view will be "covered" by SwipeDrawerTabView
             TabView(selection: $appState.selectedTab) {
                 NavigationView {
                     ScrollView {
@@ -85,7 +87,7 @@ struct ContentView: View {
                 
             }
             
-            Swipe(showHide: $showDrawer)
+            SwipeDrawerTabView(showHide: $showDrawer)
                 .padding(.top)
                 .offset(y: self.size)
                 .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
@@ -116,88 +118,5 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewDevice("iPhone 13")
-    }
-}
-
-struct Swipe: View {
-    let showHide: Binding<Bool>
-    var body: some View {
-        VStack {
-            
-            /// for pushing view up
-            HStack {
-                Button {
-                    AppState.shared.selectedTab = 0
-                } label: {
-                    Text("MAIN")
-                        .frame(height: 30)
-                        .background(Color.gray)
-                        .cornerRadius(5)
-                        .padding(5)
-                }
-                
-                Button {
-                    AppState.shared.selectedTab = 1
-                } label: {
-                    Text("SEC")
-                        .frame(height: 30)
-                        .background(Color.gray)
-                        .cornerRadius(5)
-                        .padding(5)
-                }
-
-                
-                Button {
-                    showHide.wrappedValue.toggle()
-                } label: {
-                    Text("visible area")
-                }
-                .background(Color.orange)
-                .padding()
-                .cornerRadius(15)
-                
-                Button {
-                    AppState.shared.selectedTab = 2
-                } label: {
-                    Text("TRD")
-                        .frame(height: 30)
-                        .background(Color.gray)
-                        .cornerRadius(5)
-                        .padding(5)
-                }
-                
-                Button {
-                    AppState.shared.selectedTab = 3
-                } label: {
-                    Text("FOTH")
-                        .frame(height: 30)
-                        .background(Color.gray)
-                        .cornerRadius(5)
-                        .padding(5)
-                }
-
-            }
-            .border(.blue)
-            
-            /// the content view
-            VStack {
-                HStack{
-                    Text("left")
-                    
-                    Spacer()
-                    
-                    Text("right")
-                }
-                .border(.red)
-                
-                Spacer()
-                
-                Text("btm")
-            }.frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
- 
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(20)
     }
 }

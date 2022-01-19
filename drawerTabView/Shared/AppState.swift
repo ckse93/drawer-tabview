@@ -12,20 +12,20 @@ class AppState: ObservableObject {
     static let shared = AppState()
     @Published var selectedTab = 0
     
-    enum Tab: Int, Equatable {
-        case today = 0
-        case chat = 1
-        case learning = 2
-        case me = 3
+    enum SelectedTab: Int, Equatable {
+        case main = 0
+        case second = 1
+        case third = 2
+        case forth = 3
     }
 }
 
-func ==(lhs: Int, rhs: AppState.Tab) -> Bool {
+func ==(lhs: Int, rhs: AppState.SelectedTab) -> Bool {
     switch(lhs, rhs) {
-    case (0, .today): return true
-    case(1, .chat): return true
-    case(2, .learning): return true
-    case(3, .me): return true
+    case (0, .main): return true
+    case(1, .second): return true
+    case(2, .third): return true
+    case(3, .forth): return true
     default: return false
     }
 }
